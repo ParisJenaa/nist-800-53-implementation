@@ -1,11 +1,26 @@
 # Incident Response Plan (IRP)
-Goals: Detect, contain, eradicate, recover, and learn.
-Severities: SEV1 (PHI exfil), SEV2 (outage), SEV3 (suspicious).
 
-Playbooks (IR-4):  
-- Credential compromise: disable acct, reset, log review, notify.  
-- Ransomware on admin endpoint: isolate, reimage, restore.
+## Severity
+- SEV1: Confirmed ePHI exposure, widespread compromise.
+- SEV2: Contained security event, potential exposure.
+- SEV3: Suspicious activity; investigation needed.
 
-Reporting (IR-6): SEV1 to leadership within 1 hour; customers per SLA.  
-After-Action: Lessons learned within 5 days.
+## Roles
+- IR Lead (primary), Deputy, Comms/Legal, DevOps On-Call, Security Analyst.
+
+## Workflow (IR-4)
+1) Detect (alarm/ticket) → Acknowledge (15m) → Contain (1h) → Eradicate → Recover → Lessons Learned (≤5 days).
+2) Evidence handling: preserve logs, snapshot resources, maintain chain of custody.
+3) Playbooks:
+   - Credential compromise
+   - Data exfil indicator
+   - DB corruption / ransomware (admin endpoint)
+
+## Reporting (IR-6)
+- SEV1: leadership within 1h; customers & regulators per SLA/contract.
+- Templates stored in `artifacts/ir/templates/`.
+
+## Exercises
+- Quarterly tabletop focusing on highest risks; action items tracked to closure.
+
 
